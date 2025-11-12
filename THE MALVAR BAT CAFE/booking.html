@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking - The Malvar Bat Cave Cafe</title>
+    <link rel="stylesheet" href="coffee-landing.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo.png" alt="The Malvar Bat Cave Cafe Logo">
+                <span>The Malvar Bat <span class="tique">Cave Cafe</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="coffee-landing.html">Home</a></li>
+                <li><a href="booking.html" class="active">Booking</a></li>
+                <li><a href="special-menu.html">Menu</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <button class="search-btn">🔍</button>
+                </div>
+                <button class="cart-btn">🛒</button>
+                <button class="profile-btn">👤</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-header">
+                <h1>Reserve Your Table</h1>
+                <p>Book a table at The Malvar Bat Cave Cafe and enjoy our cozy atmosphere</p>
+            </div>
+
+            <div class="booking-content">
+                <div class="booking-form-container">
+                    <div class="reservation-id-display" id="reservationIdDisplay" style="display: none;">
+                        <div class="reservation-badge">
+                            <h3>Your Reservation ID</h3>
+                            <p class="reservation-id" id="generatedReservationId"></p>
+                            <small>Please save this ID for your records</small>
+                        </div>
+                    </div>
+
+                    <form class="booking-form" id="bookingForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+63 XXX XXX XXXX">
+                            </div>
+                            <div class="form-group">
+                                <label for="bookingType">Booking Type *</label>
+                                <select id="bookingType" name="bookingType" required>
+                                    <option value="">Select booking type</option>
+                                    <option value="studying">For Studying</option>
+                                    <option value="event">For Event (Room Rental)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="guests">Number of Persons *</label>
+                                <select id="guests" name="guests" required>
+                                    <option value="">Select number of persons</option>
+                                    <option value="1">1 Person</option>
+                                    <option value="2">2 Persons</option>
+                                    <option value="3">3 Persons</option>
+                                    <option value="4">4 Persons</option>
+                                    <option value="5">5 Persons</option>
+                                    <option value="6">6 Persons</option>
+                                    <option value="7">7 Persons</option>
+                                    <option value="8">8 Persons</option>
+                                    <option value="9">9 Persons</option>
+                                    <option value="10">10 Persons</option>
+                                    <option value="11">11 Persons</option>
+                                    <option value="12">12 Persons</option>
+                                    <option value="13">13 Persons</option>
+                                    <option value="14">14 Persons</option>
+                                    <option value="15">15 Persons</option>
+                                    <option value="16">16 Persons</option>
+                                    <option value="17">17 Persons</option>
+                                    <option value="18">18 Persons</option>
+                                    <option value="19">19 Persons</option>
+                                    <option value="20">20 Persons</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="roomBookingInfo" style="display: none;">
+                                <div class="room-info-alert">
+                                    <strong>🏠 Room Rental</strong>
+                                    <p>Max capacity: 20 persons</p>
+                                    <p>1 Room available per booking</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Date *</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Time *</label>
+                                <select id="time" name="time" required>
+                                    <option value="">Select time</option>
+                                    <option value="08:00">8:00 AM</option>
+                                    <option value="09:00">9:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="15:00">3:00 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                    <option value="17:00">5:00 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="specialRequests">Special Requests (Optional)</label>
+                            <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Any dietary restrictions, seating preferences, or special requirements..."></textarea>
+                        </div>
+
+                        <!-- Payment Section -->
+                        <div class="payment-section">
+                            <h3>Payment Details</h3>
+                            <p class="payment-instruction">Please send your payment to the GCash number below and upload proof of payment</p>
+                            
+                            <div class="gcash-details">
+                                <div class="gcash-info">
+                                    <div class="gcash-number">
+                                        <strong>GCash Number:</strong>
+                                        <span class="number-display">09636996688</span>
+                                        <button type="button" class="copy-btn" onclick="copyGCashNumber()">📋 Copy</button>
+                                    </div>
+                                    <p class="account-name"><strong>Account Name:</strong> The Malvar Bat Cave Cafe</p>
+                                </div>
+                                
+                                <div class="qr-code">
+                                    <img src="images/qrcode.png" alt="GCash QR Code">
+                                    <p>Scan to pay</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="proofOfPayment">Upload Proof of Payment *</label>
+                                <input type="file" id="proofOfPayment" name="proofOfPayment" accept="image/*" required>
+                                <div class="file-upload-info">
+                                    <small>Accepted formats: JPG, PNG, GIF (Max 5MB)</small>
+                                    <div id="imagePreview" class="image-preview"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span>Confirm Booking</span>
+                            <span class="btn-icon">📅</span>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="booking-info">
+                    <div class="info-card">
+                        <div class="info-icon">ℹ️</div>
+                        <h3>Booking Information</h3>
+                        <p><strong>For Studying:</strong> Perfect for individual or group study sessions</p>
+                        <p><strong>For Event:</strong> Book our private room (Max 20 persons, 1 room only)</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <h3>Location</h3>
+                        <p>123 Malvar Street<br>Batangas City, Philippines</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">🕒</div>
+                        <h3>Opening Hours</h3>
+                        <p><strong>Monday - Friday:</strong><br>8:00 AM - 9:00 PM</p>
+                        <p><strong>Saturday - Sunday:</strong><br>9:00 AM - 10:00 PM</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <h3>Contact Us</h3>
+                        <p>Phone: 09636996688<br>Email: info@malvarbatcavecafe.com</p>
+                    </div>
+
+                    <div class="info-card highlight-card">
+                        <div class="info-icon">✨</div>
+                        <h3>Booking Benefits</h3>
+                        <ul class="benefits-list">
+                            <li>✓ Reserved seating guaranteed</li>
+                            <li>✓ Private room for events</li>
+                            <li>✓ Free WiFi for studying</li>
+                            <li>✓ Confirmation via email</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Set minimum date to today
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+
+        // Generate reservation ID
+        function generateReservationId() {
+            const prefix = 'TMBC';
+            const timestamp = Date.now().toString().slice(-8);
+            const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            return `${prefix}-${timestamp}-${random}`;
+        }
+
+        // Copy GCash number
+        function copyGCashNumber() {
+            const gcashNumber = '09636996688';
+            navigator.clipboard.writeText(gcashNumber).then(() => {
+                alert('GCash number copied to clipboard!');
+            });
+        }
+
+        // Booking type change handler
+        document.getElementById('bookingType').addEventListener('change', function() {
+            const roomInfo = document.getElementById('roomBookingInfo');
+            if (this.value === 'event') {
+                roomInfo.style.display = 'block';
+            } else {
+                roomInfo.style.display = 'none';
+            }
+        });
+
+        // File upload preview
+        document.getElementById('proofOfPayment').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const preview = document.getElementById('imagePreview');
+            
+            if (file) {
+                // Check file size (5MB limit)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('File size must be less than 5MB');
+                    this.value = '';
+                    preview.innerHTML = '';
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    preview.innerHTML = `<img src="${event.target.result}" alt="Payment Proof">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Form submission handler
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Generate reservation ID
+            const reservationId = generateReservationId();
+            
+            // Display reservation ID
+            document.getElementById('generatedReservationId').textContent = reservationId;
+            document.getElementById('reservationIdDisplay').style.display = 'block';
+            
+            // Scroll to reservation ID
+            document.getElementById('reservationIdDisplay').scrollIntoView({ behavior: 'smooth' });
+            
+            // Show confirmation
+            const bookingTypeText = data.bookingType === 'studying' ? 'For Studying' : 'For Event (Room Rental)';
+            alert(`✅ Booking Confirmed!\n\n🆔 Reservation ID: ${reservationId}\n\n👤 Name: ${data.fullName}\n📧 Email: ${data.email}\n📅 Date: ${data.date}\n🕒 Time: ${data.time}\n👥 Persons: ${data.guests}\n📋 Type: ${bookingTypeText}\n\nA confirmation email will be sent to ${data.email}.\nPlease keep your reservation ID for reference.`);
+            
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                this.reset();
+                document.getElementById('imagePreview').innerHTML = '';
+                document.getElementById('roomBookingInfo').style.display = 'none';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
